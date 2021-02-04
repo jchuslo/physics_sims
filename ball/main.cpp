@@ -13,8 +13,8 @@ int main()
 
     float move_x = 0.2;
     float move_y = 0.8;
-    const float move_y_with_gravity = 1.00005;
-    const float move_y_without_gravity = 0.995;
+    const float move_y_with_gravity = 1;
+    const float move_y_without_gravity = 1;
     bool direct_down = true;
 
     while (window.isOpen())
@@ -28,9 +28,14 @@ int main()
 
         window.clear();
 
-        if (std::abs(shape.getPosition().y - 1150) < 10) {
+        if (std::abs(shape.getPosition().y - 1000) < 10) {
         	move_y *= -1;
         	direct_down = false;
+        }
+
+        if (std::abs(shape.getPosition().y - 0) < 5 && direct_down == false) {
+        	move_y *= -1;
+        	direct_down = true;
         }
         
         if ((clock() - start) % 2 == 0) {
