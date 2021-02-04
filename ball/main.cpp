@@ -29,6 +29,7 @@ int main()
         window.clear();
 
         if (std::abs(shape.getPosition().y - 1000) < 10) {
+            // TODO: make this general so that it uses the length of screen as parameter
         	move_y *= -1;
         	direct_down = false;
         }
